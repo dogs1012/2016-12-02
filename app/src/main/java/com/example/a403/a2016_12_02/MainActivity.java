@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         Button button,button2;
         RadioGroup Rg;
         RadioButton radioButton,radioButton2;
-
-
+        String result1;
+        String result2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,23 @@ public class MainActivity extends AppCompatActivity {
         radioButton=(RadioButton)findViewById(R.id.radioButton);
         radioButton2=(RadioButton)findViewById(R.id.radioButton2);
 
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                  @Override
+                       public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                             result1 = (year + "년" + month + "월" + dayOfMonth + "일" );
+
+                     }
+                });
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+                        @Override
+                        public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                              result2 = (hourOfDay + "시" + minute + "분");
+
+
+                   }
+
+        });
 
 
 
@@ -56,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 chronometer.stop();
                 chronometer.setTextColor(Color.BLUE);
-
+                textView4.setText(result1+result2);
             }
         });
 
