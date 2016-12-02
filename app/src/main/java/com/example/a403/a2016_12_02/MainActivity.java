@@ -1,6 +1,7 @@
 package com.example.a403.a2016_12_02;
 
 import android.graphics.Color;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,7 +64,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chronometer.setBase(0);
+             if(timePicker == null ){
+                 Toast.makeText(getApplicationContext(),"시간을 선택해주세요",Toast.LENGTH_LONG).show();
+             }
+
+
+                chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
                 chronometer.setTextColor(Color.RED);
             }
