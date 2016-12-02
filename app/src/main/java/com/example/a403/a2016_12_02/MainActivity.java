@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                               result2 = (hourOfDay + "시" + minute + "분");
-
-
                    }
 
         });
@@ -64,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                chronometer.setBase(0);
                 chronometer.start();
                 chronometer.setTextColor(Color.RED);
             }
@@ -71,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 chronometer.stop();
                 chronometer.setTextColor(Color.BLUE);
                 textView4.setText(result1+result2);
