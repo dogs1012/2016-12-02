@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Chronometer;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,23 +34,55 @@ public class MainActivity extends AppCompatActivity {
         chronometer=(Chronometer)findViewById(R.id.chronometer3);
         calendarView =(CalendarView)findViewById(R.id.calendarView);
         timePicker = (TimePicker)findViewById(R.id.timePicker);
+        button =(Button)findViewById(R.id.button);
+        button2=(Button)findViewById(R.id.button2);
+        textView4 =(TextView)findViewById(R.id.textView4);
+        Rg=(RadioGroup)findViewById(R.id.RG);
+        radioButton=(RadioButton)findViewById(R.id.radioButton);
+        radioButton2=(RadioButton)findViewById(R.id.radioButton2);
 
 
-    }
 
-    public void OnClick(View v){
-            switch (v.getId())
-            {
-                case  R.id.button:
-                    chronometer.start();
-                    chronometer.setTextColor(Color.RED);
-                break;
-                case R.id.button2:
-                    chronometer.stop();
-                    chronometer.setTextColor(Color.BLUE);
-                    break;
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chronometer.start();
+                chronometer.setTextColor(Color.RED);
             }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chronometer.stop();
+                chronometer.setTextColor(Color.BLUE);
+
+            }
+        });
+
+
+        radioButton.setChecked(true);
+             radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                     @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                         timePicker.setVisibility(View.INVISIBLE);
+                         calendarView.setVisibility(View.VISIBLE);
+                          }
+                  });
+        radioButton2.setChecked(true);
+            radioButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                    timePicker .setVisibility(View.VISIBLE);
+                    calendarView .setVisibility(View.INVISIBLE);
+                }
+            });
+
+
+
     }
+
+
 
 
 }

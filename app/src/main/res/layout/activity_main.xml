@@ -16,18 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chronometer3"
-        android:format="예약된시간,%S" />
+        android:format="예약된시간 : %S" />
 
     <Button
         android:text="예약 시작"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:onClick="Onclick" />
+        android:onClick="onclick" />
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="38dp" >
+        android:layout_height="38dp"
+        android:id="@+id/RG">
 
         <RadioButton
             android:text="날짜 설정(캘린더)"
@@ -45,37 +46,40 @@
     </RadioGroup>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+        <CalendarView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/calendarView" />
 
         <TimePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timePicker" />
 
-        <CalendarView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/calendarView" />
     </FrameLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Button
             android:text="예약완료"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button2"
-            android:onClick="Onclick" />
+            android:onClick="onclick" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
-            android:layout_weight="1" />
+             />
 
     </LinearLayout>
 
